@@ -7,10 +7,10 @@ public class CreateGrid : MonoBehaviour
     public GameObject tileToInstantiate;
     public List<Sprite> spritesOnTile = new List<Sprite>();
     public int width, height;
-    private GameObject[,] _tiles;
+    [HideInInspector]public GameObject[,] _tiles;
     private Vector2 _sizeTile;
     private Sprite _rndSprite;
-    void Start()
+    void Awake()
     {
         _tiles = new GameObject[width, height];
         _sizeTile = tileToInstantiate.GetComponent<SpriteRenderer>().bounds.size;
