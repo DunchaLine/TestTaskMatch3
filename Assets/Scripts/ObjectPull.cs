@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ObjectPull : MonoBehaviour
 {
-    private Vector2 _posToSpawn;
     public GameObject gridObject;
-    private CreateGrid _gridScript;
     public List<GameObject> pool;
+    private Vector2 _posToSpawn;
+    private CreateGrid _gridScript;
     void Start()
     {
         _gridScript = gridObject.GetComponent<CreateGrid>();
@@ -23,7 +23,9 @@ public class ObjectPull : MonoBehaviour
         {
             if (!item.activeInHierarchy)
             {
-                item.transform.position = new Vector2(item.transform.position.x, 5.5f);
+                item.transform.position = new Vector2(item.transform.position.x, item.transform.position.y + 9.5f);
+                item.SetActive(true);
+                _gridScript.ChangeSprite(item);
             }
         }
     }

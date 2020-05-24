@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CreateGrid.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
+     <Compile Include="Assets\Scripts\FallingDown.cs" />
      <Compile Include="Assets\Scripts\ObjectPull.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/unity proj/TestTaskMatch3/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
