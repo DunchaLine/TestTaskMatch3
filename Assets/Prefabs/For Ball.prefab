@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7290149184095385058}
   - component: {fileID: 4464745535440347455}
   - component: {fileID: 4381044218831871659}
+  - component: {fileID: 7516964220937259069}
   m_Layer: 0
   m_Name: For Ball
   m_TagString: Untagged
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2913d55c4011f5041957c0d197ebd7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _matchObj: {fileID: 919520393790399256}
   gridObject: {fileID: 1379235931486606821, guid: 50c48f8f436ac304bb699acaa816bec7,
     type: 3}
 --- !u!212 &4381044218831871659
@@ -135,3 +137,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7516964220937259069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919520393790399256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73aa04a5f8753ed46a036b7dde57d7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objGrid: {fileID: 1379235931486606821, guid: 50c48f8f436ac304bb699acaa816bec7, type: 3}

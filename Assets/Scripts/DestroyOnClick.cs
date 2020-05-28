@@ -4,24 +4,44 @@ using UnityEngine;
 
 public class DestroyOnClick : MonoBehaviour
 {
+    public GameObject _matchObj;
     public GameObject gridObject;
     private CreateGrid _gridScript;
+    private FindMatch _matchScript;
     private int _width, _height;
     private GameObject[,] _tiles;
+    private GameObject[,] _tmpTiles;
+    private Sprite _tmpSprite;
     void Start()
     {
+        _matchScript = _matchObj.GetComponent<FindMatch>();
         _gridScript = gridObject.GetComponent<CreateGrid>();
         _width = _gridScript.width;
         _height = _gridScript.height;
         _tiles = new GameObject[_width, _height];
         _tiles = CreateGrid.gridMainScript._tiles;
+        _tmpTiles = _tiles;
+        StartCoroutine(FindTilesToFallDown());
+    }
+    void Update()
+    {
+        //StartCoroutine(FindTilesToFallDown());
     }
     void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            _tmpSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            for (int x = 0; x < _width; x++)
+            {
+            for (int y = 0; y < _height; y++)
+            {
+                
+            }
+            }
             StartCoroutine(FindTilesToFallDown());
+            
         }
     }
 
@@ -33,7 +53,7 @@ public class DestroyOnClick : MonoBehaviour
             {
                 if (_tiles[x, y].GetComponent<SpriteRenderer>().sprite == null)
                 {
-                    Debug.Log("Smth has deleted");
+                    _matchScript.Match(x, y, _tmpSprite);
                     yield return StartCoroutine(TilesFallingDown(x, y));
                     break;
                 }
@@ -52,14 +72,13 @@ public class DestroyOnClick : MonoBehaviour
             if (_tmpSpriteRenderer.sprite == null)
             {
                 _countOfEmptyTiles++;
-                Debug.Log("count: " + _countOfEmptyTiles);
             }
             _sprites.Add(_tmpSpriteRenderer);
         }
 
         for (int i = 0; i < _countOfEmptyTiles; i++)
         {
-            yield return new WaitForSeconds(.04f);
+            yield return new WaitForSeconds(.1f);
             for (int j = 0; j < _sprites.Count - 1; j++)
             {
                 _sprites[j].sprite = _sprites[j + 1].sprite;
